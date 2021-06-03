@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",
+    "start": "npm run prerender && npm run serve:ssr",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
