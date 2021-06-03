@@ -1,9 +1,9 @@
 {
   "name": "prayer-online",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng run prayer-online:prerender",
+    "start": "npm run prerender",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
