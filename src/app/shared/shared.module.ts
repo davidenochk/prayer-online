@@ -6,6 +6,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutServerModule } from "@angular/flex-layout/server";
 import { MatIconModule } from "@angular/material/icon";
 
 export const MATERIAL_MODULES = [
@@ -24,6 +25,7 @@ export const MATERIAL_MODULES = [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
+    FlexLayoutServerModule,
     ...MATERIAL_MODULES
   ],
   exports: [
