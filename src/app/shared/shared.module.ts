@@ -6,12 +6,14 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from "@angular/material/icon";
 
 export const MATERIAL_MODULES = [
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatIconModule
 ]
 
 

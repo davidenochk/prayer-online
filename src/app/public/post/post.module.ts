@@ -4,6 +4,7 @@ import { PostComponent } from './components/post/post.component';
 import { RouterModule } from '@angular/router';
 import { PostRoutingModule } from './post-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RequestsModule } from '../requests/requests.module';
 
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     RouterModule,
     PostRoutingModule,
-    SharedModule
+    SharedModule,
+    RequestsModule
   ]
 })
 export class PostModule { }

@@ -10,13 +10,15 @@ import { DummyRootComponent } from './shared/dummy-root/dummy-root.component';
 import { RouterModule } from '@angular/router';
 import { DefaultComponent } from './shared/default/default.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
     AppComponent,
     DummyRootComponent,
     DefaultComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -27,10 +29,12 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
