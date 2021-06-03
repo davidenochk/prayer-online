@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "npm run prerender",
+    "start": "npm run prerender && node ./server/main.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -30,7 +30,6 @@
     "@angular/service-worker": "~12.0.3",
     "@nguniversal/express-engine": "^12.0.1",
     "angular2-uuid": "^1.1.1",
-    "express": "^4.15.2",
     "firebase": "^7.0 || ^8.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
