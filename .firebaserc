@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "prayer-online-test": {
+      "hosting": {
+        "prayer-online": [
+          "prayer-online-test"
+        ]
+      }
+    }
+  }
+}

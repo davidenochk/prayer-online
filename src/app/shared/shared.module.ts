@@ -5,7 +5,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { RouterModule } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 export const MATERIAL_MODULES = [
   MatButtonModule,
@@ -21,9 +21,11 @@ export const MATERIAL_MODULES = [
   imports: [
     CommonModule,
     RouterModule,
+    FlexLayoutModule,
     ...MATERIAL_MODULES
   ],
   exports: [
+    FlexLayoutModule,
     ...MATERIAL_MODULES
   ]
 })
