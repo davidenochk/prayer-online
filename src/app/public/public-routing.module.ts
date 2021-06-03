@@ -9,10 +9,6 @@ const routes: Routes = [
     component: DummyRootComponent,
     children: [
       {
-        path: 'requests',
-        loadChildren: () => import('./requests/requests.module').then(m => m.RequestsModule)
-      },
-      {
         path: 'post',
         loadChildren: () => import('./post/post.module').then(m => m.PostModule)
       },

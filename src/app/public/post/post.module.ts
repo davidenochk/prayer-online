@@ -4,20 +4,13 @@ import { PostComponent } from './components/post/post.component';
 import { RouterModule } from '@angular/router';
 import { PostRoutingModule } from './post-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { RequestsModule } from '../requests/requests.module';
-
-
+import { RequestsComponent } from './components/requests/requests.component';
+import { PostService } from './post.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    PostComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    PostRoutingModule,
-    SharedModule,
-    RequestsModule
-  ]
+  declarations: [PostComponent, RequestsComponent],
+  imports: [CommonModule, RouterModule, PostRoutingModule, SharedModule, FormsModule],
+  providers: [PostService],
 })
-export class PostModule { }
+export class PostModule {}

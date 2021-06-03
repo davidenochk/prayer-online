@@ -1,0 +1,18 @@
+<div fxFlex="90" class="prayer-requests" fxLayout="row wrap">
+  <div class="mat-title" fxFlex="100">Prayer requests</div>
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <ng-container *ngFor="let post of posts$ | async">
+      <mat-card
+        fxFlex="30"
+        style="margin-bottom: 1rem"
+        *ngIf="post?.post_status !== 'POST_DELETED'"
+      >
+        <span fxFlex="100">{{ post.text }}</span>
+        <button mat-icon-button (click)="onClickDeletePost(post)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card>
+    </ng-container>
+    <div *ngIf="(posts$ | async)?.length === 0"> No prayer requests</div>
+  </div>
+</div>
