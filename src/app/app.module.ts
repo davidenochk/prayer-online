@@ -19,7 +19,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
