@@ -58,8 +58,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "/app"
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
@@ -169,7 +168,7 @@
           "builder": "@nguniversal/builders:prerender",
           "options": {
             "routes": [
-              "/"
+              "/post"
             ]
           },
           "configurations": {
