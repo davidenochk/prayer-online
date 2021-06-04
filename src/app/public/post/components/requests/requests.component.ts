@@ -39,4 +39,8 @@ export class RequestsComponent implements OnInit {
     }
     this._service.updatePost(post);
   }
+
+  isItMine(post: Post){
+    return post.created_by === this.auth.getUser()?.uid;
+  }
 }

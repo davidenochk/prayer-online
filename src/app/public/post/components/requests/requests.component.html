@@ -22,7 +22,7 @@
         <span fxFlex="100">{{ post.created_by }}</span>
         <span fxFlex="100">Prayed by {{ post.prayed?.length }}</span>
         <mat-card-actions>
-          <button mat-icon-button (click)="onClickDeletePost(post)">
+          <button mat-icon-button *ngIf="isItMine(post)" (click)="onClickDeletePost(post)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button [color]="post?.didIPray ? 'default' : 'accent'" (click)="onClickPray(post)">
