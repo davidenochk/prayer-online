@@ -8,10 +8,18 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { PostService } from './post.service';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
-  declarations: [PostComponent, RequestsComponent],
-  imports: [CommonModule, RouterModule, PostRoutingModule, SharedModule, FormsModule, FlexLayoutModule],
-  providers: [PostService],
+  declarations: [PostComponent, RequestsComponent, DetailsComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    PostRoutingModule,
+    SharedModule,
+    FormsModule,
+    FlexLayoutModule,
+  ],
+  providers: [PostService]
 })
 export class PostModule {}

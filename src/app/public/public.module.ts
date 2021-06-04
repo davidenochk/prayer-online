@@ -12,13 +12,14 @@ import { RootComponent } from './root/root/root.component';
 import { StorageService } from '../shared/_helpers/storage.service';
 import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PostService } from './post/post.service';
 
 
 
 @NgModule({
   declarations: [
     RootComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   providers: [
-    StorageService
+    StorageService,
+    PostService
   ]
 })
 export class PublicModule { }

@@ -1,4 +1,4 @@
-<div fxFlex="100" class="prayer-requests" fxLayout="row wrap">
+<div fxFlex="100" class="prayer-requests" fxLayout="row wrap" *ngIf="userId">
   <div class="mat-title" fxFlex="100">
     Prayer requests <span fxFlex></span
     ><button
@@ -27,6 +27,9 @@
           </button>
           <button mat-icon-button *ngIf="isItMine(post)" (click)="onClickDeletePost(post)">
             <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onClickDetails(post)">
+            <mat-icon>visibility</mat-icon>
           </button>
         </div>
       </mat-card>

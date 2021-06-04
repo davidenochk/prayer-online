@@ -27,9 +27,17 @@ export class PostService {
     return this.firestore.collection('posts').doc(_post.id).set(_post);
   }
 
+  createAnonymousPost(post: Post){
+    const _post = this.auditPost(post, POST_OPERATION.CREATE);
+  }
+
   updatePost(post: Post) {
     const _post = this.auditPost(post, POST_OPERATION.UPDATE);
     return this.firestore.collection('posts').doc(_post.id).set(_post);
+  }
+
+  getPostDetails(id: string | null){
+    return this.postsCollection.doc(<string>id).get();
   }
 
   getRequests(): Observable<Post[]> {
@@ -62,7 +70,7 @@ export class PostService {
     post: Post,
     operation: POST_OPERATION = POST_OPERATION.UPDATE
   ): Post {
-    const _userId = this.auth.user.value.uid;
+    const _userId = this.auth.user.value?.uid || null;
     switch (operation) {
       case POST_OPERATION.CREATE:
         return {

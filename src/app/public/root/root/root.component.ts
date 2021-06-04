@@ -10,7 +10,7 @@ export class RootComponent implements OnInit {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   fillerNav = [
-    { path: '/', label: 'Home' },
+    { path: '/home', label: 'Home' },
     { path: '/post', label: 'Post' },
     { path: '/post/requests', label: 'Requests' },
     { path: '/sign/in', label: 'Login' },
