@@ -1,18 +1,36 @@
 <div fxFlex="90" class="prayer-requests" fxLayout="row wrap">
-  <div class="mat-title" fxFlex="100">Prayer requests</div>
+  <div class="mat-title" fxFlex="100">
+    Prayer requests <span fxFlex></span
+    ><button
+      mat-button
+      mat-raised-button
+      (click)="onClickMine()"
+      [color]="mine ? 'accent' : 'default'"
+    >
+      {{mine ? "Load all" : "Load mine"}}
+    </button>
+  </div>
   <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-between start">
     <ng-container *ngFor="let post of posts$ | async">
       <mat-card
         fxFlex="30"
         style="margin-bottom: 1rem"
         *ngIf="post?.post_status !== 'POST_DELETED'"
+        fxLayout="row wrap"
       >
         <span fxFlex="100">{{ post.text }}</span>
-        <button mat-icon-button (click)="onClickDeletePost(post)">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <span fxFlex="100">{{ post.created_by }}</span>
+        <span fxFlex="100">Prayed by {{ post.prayed?.length }}</span>
+        <mat-card-actions>
+          <button mat-icon-button (click)="onClickDeletePost(post)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button [color]="post?.didIPray ? 'default' : 'accent'" (click)="onClickPray(post)">
+            {{post?.didIPray ? "Prayed" : "Pray"}}
+          </button>
+        </mat-card-actions>
       </mat-card>
     </ng-container>
-    <div *ngIf="(posts$ | async)?.length === 0"> No prayer requests</div>
+    <div *ngIf="(posts$ | async)?.length === 0">No prayer requests</div>
   </div>
 </div>

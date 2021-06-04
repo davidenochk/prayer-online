@@ -12,6 +12,8 @@ import { DefaultComponent } from './shared/default/default.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AuthenticationService } from './shared/_helpers/authentication.service';
+import { StorageService } from './shared/_helpers/storage.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    StorageService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

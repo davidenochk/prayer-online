@@ -23,7 +23,7 @@ export class PostComponent implements OnInit {
   onClickPostRequest() {
     this.setPostStatus(POST_STATUS.POSTING);
     this._service
-      .postRequest(this.post)
+      .createPost(this.post)
       .then((response) => {
         this.setPostStatus(POST_STATUS.POSTED);
         this.createEmptyPost();

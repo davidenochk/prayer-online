@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Post, POST_STATUS } from 'src/app/public/post.model';
+import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
 import { PostService } from '../../post.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { PostService } from '../../post.service';
 })
 export class RequestsComponent implements OnInit {
   posts$: Observable<Post[]> = of([]);
-  constructor(private _service: PostService) {
+  mine: boolean = false;
+  constructor(private _service: PostService, private auth: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -20,5 +22,21 @@ export class RequestsComponent implements OnInit {
   onClickDeletePost(post: Post) {
     post.post_status = POST_STATUS.POST_DELETED;
     this._service.deletePost(post);
+  }
+
+  onClickMine(){
+    this.mine = !this.mine;
+    this.posts$ = this.mine ? this._service.getMyRequests() : this._service.getRequests();
+  }
+
+  onClickPray(post: Post) {
+    const _userId = this.auth.getUser()?.uid;
+    post.prayed = post.prayed || [];
+    if(post.prayed?.filter(uid => uid === _userId)?.length){
+      post.prayed = post.prayed?.filter(uid => uid !== _userId);
+    } else {
+      post.prayed?.push(_userId);
+    }
+    this._service.updatePost(post);
   }
 }

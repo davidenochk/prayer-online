@@ -12,6 +12,9 @@ import { InRoutingModule } from "./in-routing.module";
   imports: [
     CommonModule,
     InRoutingModule
+  ],
+  exports: [
+    InComponent
   ]
 })
 export class InModule { }

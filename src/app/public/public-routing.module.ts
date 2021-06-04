@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DummyRootComponent } from '../shared/dummy-root/dummy-root.component';
 import { NotFoundComponent } from '../shared/not-found/not-found.component';
+import { RootComponent } from './root/root/root.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: DummyRootComponent,
+    component: RootComponent,
     children: [
       {
         path: 'post',
