@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "prestart": "npm run build:ssr",
     "start": "node ./dist/prayer-online/server/main.js",
     "build": "npm run prerender",
     "watch": "ng build --watch --configuration development",

@@ -168,7 +168,9 @@
           "builder": "@nguniversal/builders:prerender",
           "options": {
             "routes": [
-              "/"
+              "/",
+              "/post",
+              "/post/requests"
             ]
           },
           "configurations": {
