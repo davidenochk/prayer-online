@@ -1,5 +1,26 @@
 @import "variables";
 
 .mar-t{
-    margin-top: $rem;
+    margin-top: $rem !important;
+}
+.mar-b{
+    margin-bottom: $rem !important;
+}
+.mar-r{
+    margin-right: $rem !important;
+}
+.mar-l{
+    margin-left: $rem !important;
+}
+.mar-2t{
+    margin-top: 2 * $rem !important;
+}
+.mar-2b{
+    margin-bottom: 2 * $rem !important;
+}
+.mar-2r{
+    margin-right: 2 * $rem !important;
+}
+.mar-2l{
+    margin-left: 2 * $rem !important;
 }

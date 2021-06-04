@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from '../shared/not-found/not-found.component';
+import { HomeComponent } from './home/home/home.component';
 import { RootComponent } from './root/root/root.component';
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'sign',
         loadChildren: () => import('./sign/sign.module').then(m => m.SignModule)
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       },
       {
         path: '**',

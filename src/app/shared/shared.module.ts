@@ -30,6 +30,7 @@ export const MATERIAL_MODULES = [
   ],
   exports: [
     FlexLayoutModule,
+    FlexLayoutServerModule,
     ...MATERIAL_MODULES
   ]
 })

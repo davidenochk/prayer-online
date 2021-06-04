@@ -10,12 +10,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { RootComponent } from './root/root/root.component';
 import { StorageService } from '../shared/_helpers/storage.service';
+import { HomeComponent } from './home/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [
-    RootComponent
+    RootComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,7 @@ import { StorageService } from '../shared/_helpers/storage.service';
     MatListModule,
     MatIconModule,
     RouterModule,
+    FlexLayoutModule
   ],
   providers: [
     StorageService
