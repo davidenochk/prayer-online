@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
   CanActivateChild,
   Router,
   RouterStateSnapshot,
@@ -9,7 +8,6 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthenticationService } from './authentication.service';
 import { StorageService } from './storage.service';
 
 @Injectable({

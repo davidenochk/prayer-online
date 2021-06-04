@@ -9,5 +9,7 @@ export const environment = {
     appId: "1:776321446592:web:0fca72f83845418a92f325",
     measurementId: "G-0BSBCXKE6S"
   },
-  loginPage: '/sign/in'
+  loginPage: '/sign/in',
+  afterLoginPage: '/post',
+  afterLogoutPage: '/home'
 };

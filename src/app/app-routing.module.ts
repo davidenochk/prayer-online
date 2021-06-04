@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
   },
+  {
+    path: 'home',
+    redirectTo: '/sign/in'
+  }
 ];
 
 @NgModule({
