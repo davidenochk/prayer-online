@@ -13,6 +13,10 @@
     "build:ssr": "ng build && ng run prayer-online:server",
     "prerender": "ng run prayer-online:prerender"
   },
+  "engines": {
+    "node": "14.16.1",
+    "npm": "6.14.12"
+  },
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~12.0.3",
