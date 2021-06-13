@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthenticationService } from './shared/_helpers/authentication.service';
 import { StorageService } from './shared/_helpers/storage.service';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { StorageService } from './shared/_helpers/storage.service';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     AuthenticationService,

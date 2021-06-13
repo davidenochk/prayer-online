@@ -10,10 +10,10 @@ export class RootComponent implements OnInit {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   fillerNav = [
-    { path: '/home', label: 'Home' },
-    { path: '/post', label: 'Post' },
-    { path: '/post/requests', label: 'Requests' },
-    { path: '/sign/in', label: 'Login' },
+    { path: '/home', label: 'Home', icon: 'home' },
+    { path: '/post', label: 'Post', icon: 'add' },
+    { path: '/groups', label: 'Groups', icon: 'list' },
+    { path: '/sign/in', label: 'Login', icon: 'security' },
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {

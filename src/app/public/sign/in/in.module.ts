@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InComponent } from './in.component';
 import { InRoutingModule } from "./in-routing.module";
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +12,8 @@ import { InRoutingModule } from "./in-routing.module";
   ],
   imports: [
     CommonModule,
-    InRoutingModule
+    InRoutingModule,
+    MatButtonModule
   ],
   exports: [
     InComponent

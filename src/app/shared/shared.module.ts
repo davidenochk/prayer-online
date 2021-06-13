@@ -8,18 +8,28 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexLayoutServerModule } from "@angular/flex-layout/server";
 import { MatIconModule } from "@angular/material/icon";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MessagesService } from './messages/messages.service';
+import { BaseComponent } from './base/base.component';
+import { MatChipsModule } from "@angular/material/chips";
+import { MatDialogModule } from "@angular/material/dialog";
 
 export const MATERIAL_MODULES = [
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatIconModule
+  MatIconModule,
+  MatSnackBarModule,
+  MatChipsModule,
+  MatDialogModule
 ]
 
 
 @NgModule({
   declarations: [
+  
+    BaseComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +42,9 @@ export const MATERIAL_MODULES = [
     FlexLayoutModule,
     FlexLayoutServerModule,
     ...MATERIAL_MODULES
+  ],
+  providers: [
+    MessagesService
   ]
 })
 export class SharedModule { }

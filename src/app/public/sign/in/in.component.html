@@ -1,1 +1,8 @@
-<p>in works!</p>
+<div style="white-space: nowrap;" *ngIf="user | async as user; else showLogin">
+    <span class="mar-r" style="font-size:small;">Hello {{ user.displayName }}</span>
+    <button mat-stroked-button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+    <p *ngIf="!isMinimal">Please login.</p>
+    <button mat-button mat-stroked-button (click)="login()">Login with Google</button>
+</ng-template>

@@ -6,6 +6,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
+import { OPERATION } from 'src/app/_models/generic.model';
 import { Post } from '../post.model';
 
 @Injectable({
@@ -23,16 +24,16 @@ export class PostService {
   }
 
   createPost(post: Post) {
-    const _post = this.auditPost(post, POST_OPERATION.CREATE);
+    const _post = this.auditPost(post, OPERATION.CREATE);
     return this.firestore.collection('posts').doc(_post.id).set(_post);
   }
 
   createAnonymousPost(post: Post){
-    const _post = this.auditPost(post, POST_OPERATION.CREATE);
+    const _post = this.auditPost(post, OPERATION.CREATE);
   }
 
   updatePost(post: Post) {
-    const _post = this.auditPost(post, POST_OPERATION.UPDATE);
+    const _post = this.auditPost(post, OPERATION.UPDATE);
     return this.firestore.collection('posts').doc(_post.id).set(_post);
   }
 
@@ -62,17 +63,17 @@ export class PostService {
   }
 
   deletePost(post: Post) {
-    const _post = this.auditPost(post, POST_OPERATION.DELETE);
-    return this.postsCollection.doc(post.id).delete();
+    const _post = this.auditPost(post, OPERATION.DELETE);
+    return this.postsCollection.doc(_post.id).delete();
   }
 
   auditPost(
     post: Post,
-    operation: POST_OPERATION = POST_OPERATION.UPDATE
+    operation: OPERATION = OPERATION.UPDATE
   ): Post {
     const _userId = this.auth.user.value?.uid || null;
     switch (operation) {
-      case POST_OPERATION.CREATE:
+      case OPERATION.CREATE:
         return {
           ...post,
           created_by: post.created_by || _userId,
@@ -80,13 +81,13 @@ export class PostService {
           updated_at: new Date(),
           updated_by: _userId,
         };
-      case POST_OPERATION.UPDATE:
+      case OPERATION.UPDATE:
         return {
           ...post,
           updated_at: new Date(),
           updated_by: _userId,
         };
-      case POST_OPERATION.DELETE:
+      case OPERATION.DELETE:
         return {
           ...post,
           deleted_at: new Date(),
@@ -100,10 +101,4 @@ export class PostService {
         };
     }
   }
-}
-
-export enum POST_OPERATION {
-  'CREATE' = 'CREATE',
-  'UPDATE' = 'UPDATE',
-  'DELETE' = 'DELETE',
 }

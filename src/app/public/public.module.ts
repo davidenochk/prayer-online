@@ -13,6 +13,7 @@ import { StorageService } from '../shared/_helpers/storage.service';
 import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PostService } from './post/post.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -30,6 +31,7 @@ import { PostService } from './post/post.service';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
+    MatButtonModule,
     RouterModule,
     FlexLayoutModule
   ],

@@ -36,6 +36,8 @@ $prayer-online-theme: mat.define-light-theme(
 
 /* You can add global styles to this file, and also import other style files */
 
+$primary: mat.get-color-from-palette($prayer-online-primary, '500');
+
 html,
 body {
   height: 100%;

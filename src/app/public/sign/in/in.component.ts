@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
@@ -10,18 +10,10 @@ import { environment } from 'src/environments/environment';
   selector: 'app-in',
   // templateUrl: './in.component.html',
   styleUrls: ['./in.component.scss'],
-  template: `
-    <div *ngIf="user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <p>Please login.</p>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
-  `,
+  templateUrl: './in.component.html',
 })
 export class InComponent implements OnInit {
+  @Input() isMinimal = true;
   user: Observable<any>;
   constructor(
     private auth: AngularFireAuth,
