@@ -1,10 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-in',
@@ -15,25 +12,16 @@ import { environment } from 'src/environments/environment';
 export class InComponent implements OnInit {
   @Input() isMinimal = true;
   user: Observable<any>;
-  constructor(
-    private auth: AngularFireAuth,
-    private authentication: AuthenticationService,
-    private router: Router
-  ) {
-    this.user = this.auth.user;
+  constructor(private authentication: AuthenticationService) {
+    this.user = this.authentication.getUserObservable();
+    this.user.subscribe(res => console.log(res));
   }
 
-  ngOnInit(): void {
-    this.auth.user.subscribe((user) => {
-      if (user?.uid) this.authentication.login(user);
-      else this.authentication.logout(user);
-    });
-  }
+  ngOnInit(): void {}
   login() {
-    this.auth
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    this.authentication.login();
   }
   logout() {
-    this.auth.signOut();
+    this.authentication.logout();
   }
 }

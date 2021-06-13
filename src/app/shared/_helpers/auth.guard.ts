@@ -16,7 +16,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthenticationService) {}
+  constructor(private storage: StorageService) {}
 
   canActivate(
     childRoute: ActivatedRouteSnapshot,
@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (this.auth.getUser()?.uid) {
+    if (this.storage.getUser()?.uid) {
       return true;
     } else {
       return false;

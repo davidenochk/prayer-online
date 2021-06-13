@@ -1,5 +1,5 @@
 <div style="white-space: nowrap;" *ngIf="user | async as user; else showLogin">
-    <span class="mar-r" style="font-size:small;">Hello {{ user.displayName }}</span>
+    <span class="mar-r" style="font-size:small;" *ngIf="user.displayName">Hello {{ user.displayName }}</span>
     <button mat-stroked-button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>

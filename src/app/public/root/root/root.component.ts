@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,14 @@ export class RootComponent implements OnInit {
     { path: '/sign/in', label: 'Login', icon: 'security' },
   ];
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private auth: AuthenticationService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.restore();
+  }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
