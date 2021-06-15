@@ -22,15 +22,19 @@
         <!-- <span fxFlex="100">{{ post.created_by }}</span> -->
         <div fxLayoutAlign="space-between center" fxLayout="row" fxFlex>
           <div>Prayed by {{ post.prayed?.length }}</div>
-          <button mat-icon-button [color]="post?.didIPray ? 'default' : 'accent'" (click)="onClickPray(post)">
+          <button mat-icon-button *ngIf="!post?.isAnswered" [color]="post?.didIPray ? 'default' : 'accent'" (click)="onClickPray(post)">
             {{post?.didIPray ? "Prayed" : "Pray"}}
           </button>
-          <button mat-icon-button *ngIf="isItMine(post)" (click)="onClickDeletePost(post)">
+          <button mat-icon-button *ngIf="isItMine(post) && !post?.isAnswered" (click)="onClickDeletePost(post)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button (click)="onClickDetails(post)">
             <mat-icon>visibility</mat-icon>
           </button>
+          <button mat-icon-button (click)="onClickAnswered(post)" *ngIf="!post?.isAnswered">
+            <mat-icon>check</mat-icon>
+          </button>
+          <div *ngIf="post?.isAnswered">Answered</div>
         </div>
       </mat-card>
     </ng-container>

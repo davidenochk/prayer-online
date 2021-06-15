@@ -49,6 +49,11 @@ export class RequestsComponent implements OnInit {
     this._service.updatePost(post);
   }
 
+  onClickAnswered(post: Post){
+    post.isAnswered = true;
+    this._service.updatePost(post);
+  }
+
   isItMine(post: Post) {
     return post.created_by === this.auth.getUser()?.uid;
   }

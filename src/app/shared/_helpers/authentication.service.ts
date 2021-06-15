@@ -11,12 +11,12 @@ export class AuthenticationService {
   user: BehaviorSubject<any> = new BehaviorSubject<any>({});
   constructor(private storage: StorageService, private router: Router) {}
 
-  login(user: any){
+  login(user: any) {
     this.storeUser(user);
     this.router.navigate([environment.afterLoginPage]);
   }
 
-  logout(user: any){
+  logout(user: any) {
     this.storeUser(user);
     this.router.navigate([environment.afterLogoutPage]);
   }
@@ -26,7 +26,9 @@ export class AuthenticationService {
     this.user.next(user);
   }
 
-  getUser(){
-    return this.user.getValue();
+  getUser() {
+    const user = this.user.getValue();
+    if (user.uid) return user;
+    else this.user.next(this.storage.getUser());
   }
 }

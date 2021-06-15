@@ -10,6 +10,7 @@ export interface Post {
   deleted_at?: Date;
   prayed?: string[];
   didIPray?: boolean;
+  isAnswered?: boolean;
 }
 
 export enum POST_STATUS {

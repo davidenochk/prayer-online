@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthenticationService } from './shared/_helpers/authentication.service';
 import { StorageService } from './shared/_helpers/storage.service';
+import { AuthGuard } from './shared/_helpers/auth.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { StorageService } from './shared/_helpers/storage.service';
   ],
   providers: [
     AuthenticationService,
-    StorageService
+    StorageService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
 })
