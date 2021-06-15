@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-base',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseComponent implements OnInit {
 
-  constructor() { }
+  page = {
+    title: "Preset page title"
+  }
+  constructor(private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle("Base component set");
+  }
+
+  setPage(page: any){
+    this.page = {
+      ...this.page,
+      ...page
+    }
   }
 
 }

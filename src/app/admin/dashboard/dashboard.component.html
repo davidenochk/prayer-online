@@ -1,1 +1,6 @@
-<div class="mat-display-1">Dashboard</div>
+<div fxLayout="row" fxLayoutGap="0.5rem">
+  <app-count-widget [count]="totalRequests" fxFlex></app-count-widget>
+  <app-count-widget [count]="totalOpenRequests" fxFlex></app-count-widget>
+  <app-count-widget [count]="totalAnsweredRequests" fxFlex></app-count-widget>
+  <app-count-widget [count]="totalGroups" fxFlex></app-count-widget>
+</div>
