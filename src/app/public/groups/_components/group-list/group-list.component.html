@@ -1,0 +1,36 @@
+<div fxLayout="column" class="mar-l mar-r">
+  <div class="mat-display-1 mar-2t" fxFlex="100" fxLayout="row" fxLayoutAlign="start end">
+    <span class="mar-r">Groups</span>
+    <mat-chip-list
+      ><mat-chip (click)="onClickMine()" style="cursor: pointer" [color]="mine ? 'accent' : 'default'">
+        {{ mine ? "Load all" : "Load mine" }}
+      </mat-chip>
+    </mat-chip-list>
+    <span fxFlex></span>
+    <button mat-icon-button (click)="onClickNewGroup()"><mat-icon>add</mat-icon></button>
+  </div>
+
+  <div fxFlex="100" class="groups" fxLayout="row wrap" *ngIf="userId">
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-around start">
+      <ng-container *ngFor="let group of groups$ | async">
+        <mat-card fxFlex="30" style="margin-bottom: 1rem" fxLayout="row wrap">
+          <span fxFlex="100" class="mat-subheading-1">{{ group.name }}</span>
+          <span fxFlex="100">{{ group.created_by }}</span>
+          <div fxLayoutAlign="space-between center" fxLayout="row" fxFlex>
+            <button
+              mat-icon-button
+              *ngIf="isItMine(group)"
+              (click)="onClickDeleteGroup(group)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onClickDetails(group)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+      </ng-container>
+      <div *ngIf="(groups$ | async)?.length === 0">No groups</div>
+    </div>
+  </div>
+</div>

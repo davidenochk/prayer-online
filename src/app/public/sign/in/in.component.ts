@@ -1,47 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-in',
   // templateUrl: './in.component.html',
   styleUrls: ['./in.component.scss'],
-  template: `
-    <div *ngIf="user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <p>Please login.</p>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
-  `,
+  templateUrl: './in.component.html',
 })
 export class InComponent implements OnInit {
+  @Input() isMinimal = true;
   user: Observable<any>;
-  constructor(
-    private auth: AngularFireAuth,
-    private authentication: AuthenticationService,
-    private router: Router
-  ) {
-    this.user = this.auth.user;
+  constructor(private authentication: AuthenticationService) {
+    this.user = this.authentication.getUserObservable();
+    this.user.subscribe(res => console.log(res));
   }
 
-  ngOnInit(): void {
-    this.auth.user.subscribe((user) => {
-      if (user?.uid) this.authentication.login(user);
-      else this.authentication.logout(user);
-    });
-  }
+  ngOnInit(): void {}
   login() {
-    this.auth
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    this.authentication.login();
   }
   logout() {
-    this.auth.signOut();
+    this.authentication.logout();
   }
 }

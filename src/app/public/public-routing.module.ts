@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('./sign/sign.module').then(m => m.SignModule)
       },
       {
+        path: 'groups',
+        loadChildren: () => import('./groups/groups.module').then(m => m.GroupsModule)
+      },
+      {
         path: 'home',
         component: HomeComponent
       },

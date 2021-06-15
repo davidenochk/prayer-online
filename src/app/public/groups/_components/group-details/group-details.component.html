@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Create / Edit group</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="groupDetailsForm">
+    <div fxLayout="column">
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="Enter name for the group" />
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="other"
+          matInput
+          name="other"
+          placeholder="Enter other details of the group"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+  <div mat-dialog-footer fxLayoutAlign="space-between center">
+    <button mat-button color="warn" mat-dialog-close>
+      <mat-icon>close</mat-icon> Cancel
+    </button>
+    <button type="submit" mat-stroked-button color="primary" (click)="onClickPostGroup()">
+      <mat-icon>check</mat-icon> Okay
+    </button>
+  </div>
+</div>

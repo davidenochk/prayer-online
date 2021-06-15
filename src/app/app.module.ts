@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthenticationService } from './shared/_helpers/authentication.service';
 import { StorageService } from './shared/_helpers/storage.service';
 import { AuthGuard } from './shared/_helpers/auth.guard';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthGuard } from './shared/_helpers/auth.guard';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     AuthenticationService,

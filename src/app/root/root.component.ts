@@ -11,11 +11,11 @@ export class RootComponent implements OnInit {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   fillerNav = [
-    { path: '/home', label: 'Home' },
-    { path: '/post', label: 'Post' },
+    { path: '/home', label: 'Home', icon: 'home' },
+    { path: '/post', label: 'Post', icon: 'add' },
     { path: '/admin/dashboard', label: 'Dashboard' },
-    { path: '/post/requests', label: 'Requests' },
-    { path: '/sign/in', label: 'Login' },
+    { path: '/groups', label: 'Groups', icon: 'list' },
+    { path: '/sign/in', label: 'Login', icon: 'security' },
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private auth: AuthenticationService) {
@@ -24,7 +24,7 @@ export class RootComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit(): void {
-    // this.auth.getUser();
+    this.auth.restore();
   }
 
   ngOnDestroy(): void {

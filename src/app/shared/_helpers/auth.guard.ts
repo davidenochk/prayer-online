@@ -9,13 +9,14 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AuthenticationService } from './authentication.service';
 import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private storage: StorageService, private router: Router) {}
+  constructor(private storage: StorageService) {}
 
   canActivate(
     childRoute: ActivatedRouteSnapshot,
@@ -29,7 +30,6 @@ export class AuthGuard implements CanActivate {
       debugger;
       return true;
     } else {
-      this.router.navigate([environment.loginPage]);
       return false;
     }
   }

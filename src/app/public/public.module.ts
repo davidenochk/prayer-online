@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PostService } from './post/post.service';
 import { RootModule } from '../root/root.module';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -21,6 +22,12 @@ import { RootModule } from '../root/root.module';
     PostModule,
     SignModule,
     RootModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterModule,
     FlexLayoutModule
   ],
   providers: [
