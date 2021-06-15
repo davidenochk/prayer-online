@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AuthenticationService } from 'src/app/shared/_helpers/authentication.service';
 import { environment } from 'src/environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +22,14 @@ export class RootComponent implements OnInit {
   ];
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private auth: AuthenticationService,
-    private doc: Document) {
+    private title: Title) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.doc.title = environment.app.name;
   }
   ngOnInit(): void {
     this.auth.restore();
+    this.title.setTitle(environment.app.name);
   }
 
   ngOnDestroy(): void {
