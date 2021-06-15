@@ -1,6 +1,6 @@
-<div fxLayout="row" fxLayoutGap="0.5rem">
-  <app-count-widget [count]="totalRequests" fxFlex></app-count-widget>
-  <app-count-widget [count]="totalOpenRequests" fxFlex></app-count-widget>
-  <app-count-widget [count]="totalAnsweredRequests" fxFlex></app-count-widget>
-  <app-count-widget [count]="totalGroups" fxFlex></app-count-widget>
+<div fxLayout="row" fxLayoutGap="1rem">
+  <app-count-widget label="Total prayer requests" [count]="totalRequests" fxFlex></app-count-widget>
+  <app-count-widget label="Open requests" [count]="totalOpenRequests" fxFlex></app-count-widget>
+  <app-count-widget label="Prayers answered" [count]="totalAnsweredRequests" fxFlex></app-count-widget>
+  <app-count-widget label="Total groups" [count]="totalGroups" fxFlex></app-count-widget>
 </div>

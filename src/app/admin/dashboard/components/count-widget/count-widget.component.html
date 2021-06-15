@@ -1,4 +1,5 @@
-<mat-card>
-  <mat-card-title>Total requests</mat-card-title>
-  <div class="mat-title">{{ count }}</div>
+<mat-card fxLayout="column" fxLayoutAlign="space-between center">
+  <mat-card-title class="mat-title">{{ label }}</mat-card-title>
+  <!-- <mat-progress-spinner [value]="displayPercent | async"></mat-progress-spinner> -->
+  <div class="mat-display-3 mar-t">{{ displayCount | async }}</div>
 </mat-card>

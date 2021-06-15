@@ -7,6 +7,7 @@ import { PostService } from '../public/post/post.service';
 import { RootModule } from '../root/root.module';
 import { CountWidgetComponent } from './dashboard/components/count-widget/count-widget.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     AdminRoutingModule,
     RootModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     StorageService,
