@@ -22,5 +22,8 @@ import { SignModule } from '../public/sign/sign.module';
     SignModule
   ],
   exports: [RootComponent],
+  providers: [
+    Document
+  ]
 })
 export class RootModule {}

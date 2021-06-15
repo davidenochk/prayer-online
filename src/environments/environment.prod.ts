@@ -11,5 +11,8 @@ export const environment = {
   },
   loginPage: '/sign/in',
   afterLoginPage: '/post',
-  afterLogoutPage: '/home'
+  afterLogoutPage: '/home',
+  app: {
+    name: "Prayer help"
+  }
 };

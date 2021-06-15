@@ -27,7 +27,6 @@ export class AuthGuard implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     if (this.storage.getUser()?.uid) {
-      debugger;
       return true;
     } else {
       return false;

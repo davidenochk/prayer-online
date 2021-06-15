@@ -1,7 +1,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
-    <mat-icon (click)="snav.toggle()">menu</mat-icon>
-    <h1 class="example-app-name" span fxFlex>Responsive App</h1>
+    <mat-icon (click)="snav.toggle()" class="mar-r cursor">menu</mat-icon>
+    <h1 class="example-app-name" span fxFlex>{{app?.name}}</h1>
     <app-in></app-in>
   </mat-toolbar>
 
